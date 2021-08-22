@@ -1,16 +1,10 @@
-package com.vv.tool.film.assistant.crawler.pageProcessor.douban;
+package com.vv.tool.film.assistant.crawler.webmagic.douban;
 
-import com.vv.tool.film.assistant.crawler.demo.OschinaBlogPageProcessor;
+import com.vv.tool.film.assistant.crawler.webmagic.pipeline.MoviePipeline;
 import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.pipeline.ConsolePipeline;
-import us.codecraft.webmagic.pipeline.JsonFilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
-
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * @description:

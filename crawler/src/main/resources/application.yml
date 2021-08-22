@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   datasource:
     #  驱动
     driver-class-name: org.h2.Driver
@@ -34,7 +36,5 @@ logging:
 #  type-aliases-package: cn.felord.mybatis.entity
 #  type-handlers-package: cn.felord.mybatis.type
 
-
-# swagger开关
-swagger:
-  enabled: true
+cron:
+  1: 0 * 0/1 * * ?

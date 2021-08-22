@@ -1,0 +1,6 @@
+# swagger开关
+swagger:
+  enabled: true
+
+cron:
+  1: 0/30 * * * * ?

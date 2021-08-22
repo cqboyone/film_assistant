@@ -1,6 +1,6 @@
 package com.vv.tool.film.assistant.crawler.common.config;
 
-import com.vv.tool.film.assistant.crawler.common.BO.BaseResult;
+import com.vv.tool.film.assistant.crawler.common.bo.BaseResult;
 import com.vv.tool.film.assistant.crawler.common.enums.CommonErrorCode;
 import com.vv.tool.film.assistant.crawler.common.exception.ApiException;
 import org.apache.commons.lang3.StringUtils;

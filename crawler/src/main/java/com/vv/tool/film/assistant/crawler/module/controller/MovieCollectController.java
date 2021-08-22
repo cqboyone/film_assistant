@@ -1,8 +1,8 @@
 package com.vv.tool.film.assistant.crawler.module.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.vv.tool.film.assistant.crawler.common.BO.BasePage;
-import com.vv.tool.film.assistant.crawler.common.BO.BaseResult;
+import com.vv.tool.film.assistant.crawler.common.bo.BasePage;
+import com.vv.tool.film.assistant.crawler.common.bo.BaseResult;
 import com.vv.tool.film.assistant.crawler.common.exception.ApiException;
 import com.vv.tool.film.assistant.crawler.module.entity.MovieCollect;
 import com.vv.tool.film.assistant.crawler.module.mapstruct.MovieCollectMapping;

@@ -1,4 +1,4 @@
-package com.vv.tool.film.assistant.crawler.common.BO;
+package com.vv.tool.film.assistant.crawler.common.bo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

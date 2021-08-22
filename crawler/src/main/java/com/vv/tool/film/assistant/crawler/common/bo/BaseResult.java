@@ -1,4 +1,4 @@
-package com.vv.tool.film.assistant.crawler.common.BO;
+package com.vv.tool.film.assistant.crawler.common.bo;
 
 import com.vv.tool.film.assistant.crawler.common.exception.ApiException;
 import io.swagger.annotations.ApiModel;
