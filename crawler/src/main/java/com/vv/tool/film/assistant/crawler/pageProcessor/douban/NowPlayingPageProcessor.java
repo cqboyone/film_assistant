@@ -1,9 +1,12 @@
 package com.vv.tool.film.assistant.crawler.pageProcessor.douban;
 
+import com.vv.tool.film.assistant.crawler.demo.OschinaBlogPageProcessor;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.pipeline.ConsolePipeline;
+import us.codecraft.webmagic.pipeline.JsonFilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 import java.util.HashMap;
@@ -42,18 +45,8 @@ public class NowPlayingPageProcessor implements PageProcessor {
 
     public static void main(String[] args) {
         String url = "https://movie.douban.com/cinema/nowplaying/chongqing";
-        Spider spider = Spider.create(new NowPlayingPageProcessor());
-        ResultItems resultItems = spider.get(url);
-        List<String> movies = resultItems.get("movies");
-        List<String> rate = resultItems.get("rate");
-        HashMap<String, String> moviesMap = new HashMap<>();
-        for (int i = 0; i < movies.size(); i++) {
-            //过滤评分
-            if (Double.parseDouble(rate.get(i)) < 7) {
-                continue;
-            }
-            moviesMap.put(movies.get(i), rate.get(i));
-        }
-        System.out.println(moviesMap);
+        Spider.create(new NowPlayingPageProcessor()).addUrl(url)
+                .addPipeline(new MoviePipeline()).run();
     }
+
 }
