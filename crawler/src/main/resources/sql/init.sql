@@ -15,5 +15,16 @@ create table movie_collect
         unique (movie_name)
 ) comment '电影集';
 create
-unique index movie_collect_movie_name_uindex
-	on movie_collect (movie_name);
+    unique index movie_collect_movie_name_uindex
+    on movie_collect (movie_name);
+
+create table movie_source
+(
+    id            varchar(32) not null comment '主键'
+        primary key,
+    created_time  datetime    not null comment '创建时间',
+    updated_time  datetime    not null comment '更新时间',
+    movie_id      varchar(32) not null comment '电影id',
+    source_type   varchar(32) not null default 'bt' comment '资源类型',
+    source_detail text        not null comment '资源详情'
+) comment '电影资源';
