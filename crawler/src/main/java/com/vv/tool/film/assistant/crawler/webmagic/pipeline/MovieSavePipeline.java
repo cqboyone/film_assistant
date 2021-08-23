@@ -12,11 +12,11 @@ import us.codecraft.webmagic.pipeline.Pipeline;
 import java.util.List;
 
 @NoArgsConstructor
-public class MoviePipeline implements Pipeline {
+public class MovieSavePipeline implements Pipeline {
 
     private MovieCollectService movieCollectService;
 
-    public MoviePipeline(MovieCollectService movieCollectService) {
+    public MovieSavePipeline(MovieCollectService movieCollectService) {
         this.movieCollectService = movieCollectService;
     }
 

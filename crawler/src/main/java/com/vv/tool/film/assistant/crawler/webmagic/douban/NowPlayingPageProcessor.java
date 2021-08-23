@@ -1,6 +1,6 @@
 package com.vv.tool.film.assistant.crawler.webmagic.douban;
 
-import com.vv.tool.film.assistant.crawler.webmagic.pipeline.MoviePipeline;
+import com.vv.tool.film.assistant.crawler.webmagic.pipeline.MovieSavePipeline;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
@@ -46,7 +46,7 @@ public class NowPlayingPageProcessor implements PageProcessor {
     public static void main(String[] args) {
         String url = "https://movie.douban.com/cinema/nowplaying/chongqing";
         Spider.create(new NowPlayingPageProcessor()).addUrl(url)
-                .addPipeline(new MoviePipeline()).run();
+                .addPipeline(new MovieSavePipeline()).run();
     }
 
 }
