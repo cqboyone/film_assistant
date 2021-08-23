@@ -22,8 +22,14 @@ public class NowPlayingPageProcessor implements PageProcessor {
      */
     @Override
     public void process(Page page) {
+        //xpath css 混合.也可以用xpath方式
         page.putField("movies", page.getHtml().xpath("//div[@id='nowplaying']").css("li.list-item", "data-title").all());
-        page.putField("rate", page.getHtml().xpath("//div[@id='nowplaying']").css("li.list-item", "data-score").all());
+//        //xpath
+//        page.putField("movies", page.getHtml().xpath("//div[@id='nowplaying']/div[2]/ul/li/ul/li[@class='stitle']/a/text()").all());
+        //这里用css是因为没有评分的话就没有标签，但是属性里面是有参数的。是0。
+        page.putField("rates", page.getHtml().xpath("//div[@id='nowplaying']").css("li.list-item", "data-score").all());
+        page.putField("imgs", page.getHtml().xpath("//div[@id='nowplaying']/div[@class='mod-bd']/ul/li/ul/li/a/img/@src").all());
+        page.putField("ids", page.getHtml().xpath("//div[@id='nowplaying']/div[@class='mod-bd']/ul/li/@id").all());
     }
 
     /**

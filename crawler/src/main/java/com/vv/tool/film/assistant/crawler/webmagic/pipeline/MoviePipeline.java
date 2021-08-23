@@ -23,20 +23,26 @@ public class MoviePipeline implements Pipeline {
     @Override
     public void process(ResultItems resultItems, Task task) {
         List<String> movies = resultItems.get("movies");
-        List<String> rate = resultItems.get("rate");
+        List<String> rates = resultItems.get("rates");
+        List<String> movieStagePhotos = resultItems.get("imgs");
+        List<String> ids = resultItems.get("ids");
         for (int i = 0; i < movies.size(); i++) {
             String movieName = movies.get(i);
-            if(StringUtils.isBlank(movieName)){
+            if (StringUtils.isBlank(movieName)) {
                 continue;
             }
             //过滤评分
-            double score = Double.parseDouble(rate.get(i));
+            double score = Double.parseDouble(rates.get(i));
             if (score < 7) {
                 continue;
             }
             MovieCollect movieCollect = new MovieCollect();
             movieCollect.setMovieName(movieName);
             movieCollect.setMovieScore(score);
+            if (movieStagePhotos.size() > i) {
+                movieCollect.setMovieStagePhoto(movieStagePhotos.get(i));
+            }
+            movieCollect.setDoubanId(ids.get(i));
             movieCollectService.saveOrUpdate(movieCollect, new LambdaUpdateWrapper<MovieCollect>()
                     .eq(MovieCollect::getMovieName, movieName));
         }
