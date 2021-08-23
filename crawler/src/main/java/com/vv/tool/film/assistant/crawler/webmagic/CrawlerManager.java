@@ -18,6 +18,6 @@ public class CrawlerManager {
     public void updateLikedCountForProductInfo() {
         String url = "https://movie.douban.com/cinema/nowplaying/chongqing";
         Spider.create(new NowPlayingPageProcessor()).addUrl(url)
-                .addPipeline(new MovieSavePipeline(movieCollectService)).run();
+                .addPipeline(new MovieSavePipeline(movieCollectService)).start();
     }
 }

@@ -5,7 +5,6 @@ import org.apache.commons.lang3.ObjectUtils;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.Task;
-import us.codecraft.webmagic.pipeline.ConsolePipeline;
 import us.codecraft.webmagic.pipeline.Pipeline;
 
 import java.util.List;
@@ -32,12 +31,10 @@ public class MovieSearchPipeline implements Pipeline {
             return;
         }
         for (int i = 0; i < href.size(); i++) {
-//            ResultItems ri = Spider.create(new BtSowDetail()).get("https://" + href.get(i));
-            Spider.create(new BtSowDetail()).addUrl("https:" + href.get(i)).addPipeline(new ConsolePipeline()).run();
-//            String bt = ri.get("bt");
-//            href.set(i, bt);
+            ResultItems ri = Spider.create(new BtSowDetail()).get("https:" + href.get(i));
+            String bt = ri.get("bt");
+            href.set(i, bt);
         }
-
         System.out.println(resultItems);
     }
 }

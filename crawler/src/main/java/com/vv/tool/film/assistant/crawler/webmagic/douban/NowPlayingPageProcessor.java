@@ -46,7 +46,7 @@ public class NowPlayingPageProcessor implements PageProcessor {
     public static void main(String[] args) {
         String url = "https://movie.douban.com/cinema/nowplaying/chongqing";
         Spider.create(new NowPlayingPageProcessor()).addUrl(url)
-                .addPipeline(new MovieSavePipeline()).run();
+                .addPipeline(new MovieSavePipeline()).start();
     }
 
 }
