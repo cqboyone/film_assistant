@@ -36,6 +36,8 @@ logging:
 #  type-aliases-package: cn.felord.mybatis.entity
 #  type-handlers-package: cn.felord.mybatis.type
 
-#每天三点执行
 cron:
+  #查询豆瓣正在热播，每天三点执行
   1: 0 0 3 1/1 * ?
+  #查询电影是否有资源，每小时执行
+  2: 0 0 0/1 * * ?

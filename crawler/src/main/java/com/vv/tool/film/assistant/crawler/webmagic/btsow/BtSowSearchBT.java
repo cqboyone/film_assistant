@@ -1,14 +1,12 @@
 package com.vv.tool.film.assistant.crawler.webmagic.btsow;
 
-import com.vv.tool.film.assistant.crawler.webmagic.pipeline.MovieSearchPipeline;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 /**
  * @description:
- * @creator zhangwei73
+ * @creator vv
  * @date 2021/8/23 19:53
  */
 public class BtSowSearchBT implements PageProcessor {
@@ -29,7 +27,7 @@ public class BtSowSearchBT implements PageProcessor {
     }
 
     public static void main(String[] args) {
-        String url ="https://btsow.one/search/夏日友晴天";
-        Spider.create(new BtSowSearchBT()).addUrl(url).addPipeline(new MovieSearchPipeline()).start();
+//        String url ="https://btsow.one/search/夏日友晴天";
+//        Spider.create(new BtSowSearchBT()).addUrl(url).addPipeline(new MovieSearchPipeline()).start();
     }
 }

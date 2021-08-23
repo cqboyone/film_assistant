@@ -8,7 +8,7 @@ import us.codecraft.webmagic.processor.PageProcessor;
 
 /**
  * @description:
- * @creator zhangwei73
+ * @creator vv
  * @date 2021/8/23 20:30
  */
 public class BtSowDetail implements PageProcessor {

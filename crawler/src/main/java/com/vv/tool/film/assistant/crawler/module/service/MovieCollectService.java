@@ -11,4 +11,6 @@ import com.vv.tool.film.assistant.crawler.module.entity.MovieCollect;
  */
 public interface MovieCollectService extends IService<MovieCollect> {
 
+    MovieCollect getByDouBanId(String douBanId);
+
 }
