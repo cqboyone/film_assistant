@@ -56,4 +56,9 @@ public class MovieCollectVo implements Serializable {
      */
     @ApiModelProperty(name = "movieStagePhoto", value = "剧照")
     private String movieStagePhoto;
+    /**
+     * 归档
+     */
+    @ApiModelProperty(name = "archive", value = "归档")
+    private String archive;
 }

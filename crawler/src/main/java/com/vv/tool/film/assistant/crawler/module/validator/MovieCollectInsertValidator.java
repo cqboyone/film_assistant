@@ -30,4 +30,7 @@ public class MovieCollectInsertValidator implements Serializable {
     @ApiModelProperty(name = "movieStagePhoto", value = "剧照", allowEmptyValue = true)
     private String movieStagePhoto;
 
+    @ApiModelProperty(name = "archive", value = "归档")
+    private String archive;
+
 }

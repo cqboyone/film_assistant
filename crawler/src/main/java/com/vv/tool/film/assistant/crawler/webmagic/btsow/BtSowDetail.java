@@ -13,7 +13,7 @@ import us.codecraft.webmagic.processor.PageProcessor;
  */
 public class BtSowDetail implements PageProcessor {
 
-    private Site site = Site.me().setRetryTimes(3).setSleepTime(100);
+    private Site site = Site.me().setRetryTimes(3).setSleepTime(300);
 
     /**
      * process the page, extract urls to fetch, extract the data and store

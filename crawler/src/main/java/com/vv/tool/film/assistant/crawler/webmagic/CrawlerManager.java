@@ -1,5 +1,6 @@
 package com.vv.tool.film.assistant.crawler.webmagic;
 
+import com.vv.tool.film.assistant.crawler.module.entity.MovieCollect;
 import com.vv.tool.film.assistant.crawler.module.service.MovieCollectService;
 import com.vv.tool.film.assistant.crawler.module.service.MovieSourceService;
 import com.vv.tool.film.assistant.crawler.webmagic.btsow.BtSowSearchBT;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Spider;
+
+import java.util.List;
 
 @Component
 public class CrawlerManager {
@@ -29,7 +32,13 @@ public class CrawlerManager {
 
     @Scheduled(cron = "${cron.2:0 0/1 * * * ?}")
     public void findMovieSource() {
-        String url = "https://btsow.one/search/夏日友晴天";
-        Spider.create(new BtSowSearchBT()).addUrl(url).addPipeline(new MovieSearchPipeline(movieSourceService, movieCollectService)).start();
+        List<MovieCollect> unArchive = movieCollectService.getUnArchive();
+        unArchive.stream()
+                .forEach(e -> {
+                    String url = "https://btsow.one/search/" + e.getMovieName();
+                    Spider.create(new BtSowSearchBT()).addUrl(url)
+                            .addPipeline(new MovieSearchPipeline(e.getId(), movieSourceService, movieCollectService)).start();
+
+                });
     }
 }

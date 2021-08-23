@@ -1,5 +1,6 @@
 package com.vv.tool.film.assistant.crawler.webmagic.pipeline;
 
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.vv.tool.film.assistant.crawler.module.entity.MovieSource;
 import com.vv.tool.film.assistant.crawler.module.service.MovieCollectService;
 import com.vv.tool.film.assistant.crawler.module.service.MovieSourceService;
@@ -25,7 +26,13 @@ public class MovieSearchPipeline implements Pipeline {
 
     private MovieCollectService movieCollectService;
 
-    public MovieSearchPipeline(MovieSourceService movieSourceService, MovieCollectService movieCollectService) {
+    private String movieId;
+
+    public MovieSearchPipeline(
+            String movieId,
+            MovieSourceService movieSourceService,
+            MovieCollectService movieCollectService) {
+        this.movieId = movieId;
         this.movieSourceService = movieSourceService;
         this.movieCollectService = movieCollectService;
     }
@@ -47,12 +54,18 @@ public class MovieSearchPipeline implements Pipeline {
         }
         for (int i = 0; i < href.size(); i++) {
             ResultItems ri = Spider.create(new BtSowDetail()).get("https:" + href.get(i));
+            if (ri == null) {
+                continue;
+            }
             String bt = ri.get("bt");
-            href.set(i, bt);
             MovieSource movieSource = new MovieSource();
-//            movieSource.setMovieId(movieCollectService.getByDouBanId());
-            movieSource.setSourceDetail(ri.get("bt"));
+            movieSource.setMovieId(movieId);
+            movieSource.setSourceDetail(bt);
+            movieSource.setSourceSize(size.get(i));
+            movieSource.setSourceTime(time.get(i));
+            movieSourceService.saveOrUpdate(movieSource, new LambdaUpdateWrapper<MovieSource>()
+                    .eq(MovieSource::getSourceDetail, bt)
+            );
         }
-        System.out.println(resultItems);
     }
 }

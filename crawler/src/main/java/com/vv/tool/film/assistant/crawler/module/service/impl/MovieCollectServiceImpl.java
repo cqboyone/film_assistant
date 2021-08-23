@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * 电影集(MovieCollect)表服务实现类
  *
@@ -23,5 +25,12 @@ public class MovieCollectServiceImpl extends ServiceImpl<MovieCollectDao, MovieC
     public MovieCollect getByDouBanId(String douBanId) {
         return this.getOne(new LambdaQueryWrapper<MovieCollect>()
                 .eq(MovieCollect::getDoubanId, douBanId));
+    }
+
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.SUPPORTS)
+    @Override
+    public List<MovieCollect> getUnArchive() {
+        return this.list(new LambdaQueryWrapper<MovieCollect>()
+                .eq(MovieCollect::getArchive, false));
     }
 }

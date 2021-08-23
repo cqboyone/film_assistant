@@ -3,6 +3,8 @@ package com.vv.tool.film.assistant.crawler.module.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.vv.tool.film.assistant.crawler.module.entity.MovieCollect;
 
+import java.util.List;
+
 /**
  * 电影集(MovieCollect)表服务接口
  *
@@ -12,5 +14,7 @@ import com.vv.tool.film.assistant.crawler.module.entity.MovieCollect;
 public interface MovieCollectService extends IService<MovieCollect> {
 
     MovieCollect getByDouBanId(String douBanId);
+
+    List<MovieCollect> getUnArchive();
 
 }

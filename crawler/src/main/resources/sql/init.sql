@@ -8,9 +8,10 @@ create table movie_collect
     created_time      datetime     not null comment '创建时间',
     updated_time      datetime     not null comment '更新时间',
     movie_name        varchar(128) not null comment '电影名称',
-    movie_score       double null comment '评分',
-    douban_id         varchar(32) null comment '豆瓣id',
-    movie_stage_photo text null comment '剧照',
+    movie_score       double       null comment '评分',
+    douban_id         varchar(32)  null comment '豆瓣id',
+    movie_stage_photo text         null comment '剧照',
+    archive           boolean      not null default false comment '归档',
     constraint movie_collect_movie_name_uindex
         unique (movie_name)
 ) comment '电影集';
@@ -26,5 +27,7 @@ create table movie_source
     updated_time  datetime    not null comment '更新时间',
     movie_id      varchar(32) not null comment '电影id',
     source_type   varchar(32) not null default 'bt' comment '资源类型',
-    source_detail text        not null comment '资源详情'
+    source_detail text        not null comment '资源详情',
+    source_size   varchar(32) null comment '资源大小',
+    source_time   varchar(64) null comment '资源上线时间'
 ) comment '电影资源';

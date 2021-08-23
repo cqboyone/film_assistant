@@ -12,13 +12,13 @@ import java.util.Date;
  * 电影资源(MovieSource)表展示
  *
  * @author vv
- * @since 2021-08-23 23:11:56
+ * @since 2021-08-23 23:51:39
  */
 @SuppressWarnings("serial")
 @Data
 @ApiModel(value = "MovieSourceVo", description = "展示电影资源")
 public class MovieSourceVo implements Serializable {
-    private static final long serialVersionUID = -89074741727802294L;
+    private static final long serialVersionUID = 398170138104850670L;
     /**
      * 主键
      */
@@ -51,4 +51,14 @@ public class MovieSourceVo implements Serializable {
      */
     @ApiModelProperty(name = "sourceDetail", value = "资源详情")
     private String sourceDetail;
+    /**
+     * 资源大小
+     */
+    @ApiModelProperty(name = "sourceSize", value = "资源大小")
+    private String sourceSize;
+    /**
+     * 资源上线时间
+     */
+    @ApiModelProperty(name = "sourceTime", value = "资源上线时间")
+    private String sourceTime;
 }

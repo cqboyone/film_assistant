@@ -47,6 +47,10 @@ public class MovieCollect extends Model<MovieCollect> {
      * 剧照
      */
     private String movieStagePhoto;
+    /**
+     * 归档
+     */
+    private String archive;
 
     /**
      * 获取主键值
