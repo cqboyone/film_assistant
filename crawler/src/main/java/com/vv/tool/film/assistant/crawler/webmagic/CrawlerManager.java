@@ -27,7 +27,7 @@ public class CrawlerManager {
     public void findNowPlaying() {
         String url = "https://movie.douban.com/cinema/nowplaying/chongqing";
         Spider.create(new NowPlayingPageProcessor()).addUrl(url)
-                .addPipeline(new MovieSavePipeline(movieCollectService)).start();
+                .addPipeline(new MovieSavePipeline(movieCollectService)).run();
     }
 
     @Scheduled(cron = "${cron.2:0 0/1 * * * ?}")
@@ -40,7 +40,7 @@ public class CrawlerManager {
                             new BtSowSearchBT())
                             .addUrl(url)
                             .addPipeline(new MovieSearchPipeline(e.getId(), movieSourceService, movieCollectService))
-                            .start();
+                            .run();
 
                 });
     }

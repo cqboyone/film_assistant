@@ -4,11 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.vv.tool.film.assistant.crawler.module.entity.MovieSource;
 import com.vv.tool.film.assistant.crawler.module.service.MovieCollectService;
 import com.vv.tool.film.assistant.crawler.module.service.MovieSourceService;
-import com.vv.tool.film.assistant.crawler.webmagic.btsow.BtSowDetail;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.ObjectUtils;
 import us.codecraft.webmagic.ResultItems;
-import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.Pipeline;
 
@@ -53,18 +51,13 @@ public class MovieSearchPipeline implements Pipeline {
             return;
         }
         for (int i = 0; i < href.size(); i++) {
-            ResultItems ri = Spider.create(new BtSowDetail()).get("https:" + href.get(i));
-            if (ri == null) {
-                continue;
-            }
-            String bt = ri.get("bt");
             MovieSource movieSource = new MovieSource();
             movieSource.setMovieId(movieId);
-            movieSource.setSourceDetail(bt);
+            movieSource.setSourceDetail(href.get(i));
             movieSource.setSourceSize(size.get(i));
             movieSource.setSourceTime(time.get(i));
             movieSourceService.saveOrUpdate(movieSource, new LambdaUpdateWrapper<MovieSource>()
-                    .eq(MovieSource::getSourceDetail, bt)
+                    .eq(MovieSource::getSourceDetail, href.get(i))
             );
         }
     }
