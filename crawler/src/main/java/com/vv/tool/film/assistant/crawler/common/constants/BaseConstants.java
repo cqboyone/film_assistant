@@ -2,7 +2,7 @@ package com.vv.tool.film.assistant.crawler.common.constants;
 
 /**
  * @description:
- * @creator zhangwei73
+ * @creator vv
  * @date 2021/8/24 10:06
  */
 public class BaseConstants {
