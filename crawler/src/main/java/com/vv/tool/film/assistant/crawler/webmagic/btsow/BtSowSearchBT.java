@@ -4,6 +4,8 @@ import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
 
+import static com.vv.tool.film.assistant.crawler.common.constants.BaseConstants.USER_AGENT;
+
 /**
  * @description:
  * @creator vv
@@ -11,7 +13,7 @@ import us.codecraft.webmagic.processor.PageProcessor;
  */
 public class BtSowSearchBT implements PageProcessor {
 
-    private Site site = Site.me().setRetryTimes(3).setSleepTime(100);
+    private Site site = Site.me().setRetryTimes(3).setSleepTime(2000).setUserAgent(USER_AGENT);
 
     @Override
     public void process(Page page) {

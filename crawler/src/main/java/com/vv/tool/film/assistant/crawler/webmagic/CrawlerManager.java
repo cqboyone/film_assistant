@@ -36,8 +36,11 @@ public class CrawlerManager {
         unArchive.stream()
                 .forEach(e -> {
                     String url = "https://btsow.one/search/" + e.getMovieName();
-                    Spider.create(new BtSowSearchBT()).addUrl(url)
-                            .addPipeline(new MovieSearchPipeline(e.getId(), movieSourceService, movieCollectService)).start();
+                    Spider.create(
+                            new BtSowSearchBT())
+                            .addUrl(url)
+                            .addPipeline(new MovieSearchPipeline(e.getId(), movieSourceService, movieCollectService))
+                            .start();
 
                 });
     }
