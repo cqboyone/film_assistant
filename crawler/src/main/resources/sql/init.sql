@@ -50,6 +50,6 @@ create table magnet_rule
     xpath_name   varchar(512) not null comment 'xpath:名称',
     xpath_size   varchar(512) not null comment 'xpath:文件大小',
     xpath_date   varchar(512) not null comment 'xpath:时间',
-    xpath_hot    varchar(512) not null comment 'xpath:人气',
+    xpath_hot    varchar(512) null comment 'xpath:人气',
     xpath_detail varchar(512) null comment 'xpath:详情'
 ) comment '磁力规则';

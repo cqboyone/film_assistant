@@ -3,6 +3,7 @@ package com.vv.tool.film.assistant.crawler.module.entity;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ import java.util.Date;
  */
 @SuppressWarnings("serial")
 @Data
+@Builder
 public class MagnetRule extends Model<MagnetRule> {
     /**
      * 主键
@@ -46,7 +48,7 @@ public class MagnetRule extends Model<MagnetRule> {
     /**
      * 是否需要代理
      */
-    private Integer magnetProxy;
+    private Boolean magnetProxy;
     /**
      * 默认排序路径
      */

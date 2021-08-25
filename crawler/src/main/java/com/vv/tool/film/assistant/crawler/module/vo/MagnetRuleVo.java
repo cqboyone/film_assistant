@@ -55,7 +55,7 @@ public class MagnetRuleVo implements Serializable {
      * 是否需要代理
      */
     @ApiModelProperty(name = "magnetProxy", value = "是否需要代理")
-    private Integer magnetProxy;
+    private Boolean magnetProxy;
     /**
      * 默认排序路径
      */

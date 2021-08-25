@@ -27,9 +27,8 @@ public class MagnetRuleInsertValidator implements Serializable {
     @ApiModelProperty(name = "magnetIcon", value = "源站图标", allowEmptyValue = true)
     private String magnetIcon;
 
-    //    @Min(value = 0, message = "参数magnetProxy不能小于0")
     @ApiModelProperty(name = "magnetProxy", value = "是否需要代理", allowEmptyValue = true)
-    private Integer magnetProxy;
+    private Boolean magnetProxy;
 
     @ApiModelProperty(name = "pathsPreset", value = "默认排序路径", allowEmptyValue = true)
     private String pathsPreset;

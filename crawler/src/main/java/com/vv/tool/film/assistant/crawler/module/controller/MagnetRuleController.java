@@ -105,6 +105,19 @@ public class MagnetRuleController extends BaseController {
     }
 
     /**
+     * 新增数据
+     *
+     * @param v 实体对象
+     * @return 新增结果
+     */
+    @ApiOperation(value = "新增数据2", notes = "新增数据")
+    @PostMapping("2")
+    public BaseResult insertStr(@Valid @RequestBody String v) {
+        this.magnetRuleService.saveByJson(v);
+        return BaseResult.success();
+    }
+
+    /**
      * 修改数据
      *
      * @param v 实体对象

@@ -11,4 +11,6 @@ import com.vv.tool.film.assistant.crawler.module.entity.MagnetRule;
  */
 public interface MagnetRuleService extends IService<MagnetRule> {
 
+    void saveByJson(String json);
+
 }
