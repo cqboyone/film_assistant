@@ -1,0 +1,23 @@
+{
+  "id": "1337x",
+  "name": "1337X（英文）",
+  "proxy": true,
+  "url": "https://1337x.to",
+  "paths": {
+    "preset": "/search/{k}/{p}/",
+    "time": "/sort-search/{k}/time/desc/{p}/",
+    "size": "/sort-search/{k}/size/desc/{p}/",
+    "hot": "/sort-search/{k}/leechers/desc/{p}/"
+  },
+  "xpath": {
+    "group": "//div[@class='table-list-wrap']/table/tbody/tr",
+    "name": "./td[1]/a[2]",
+    "size": "./td[5]",
+    "date": "./td[4]",
+    "hot": "./td[8]",
+    "detail": {
+      "root": "/html/body/main/div/div/div/div[2]",
+      "magnet": "./div[1]/ul[1]/li[1]/a/@href"
+    }
+  }
+}
